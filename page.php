@@ -47,8 +47,10 @@ include('includes/config.php');
 <body>
 <<!-- Start Switcher -->
 
-<!-- /Switcher -->  
-        
+<!-- /Switcher -->
+
+
+
 <!--Header-->
 <?php include('includes/header.php');?>
                       <?php 
@@ -89,11 +91,83 @@ foreach($results as $result)
    <?php } }?>
   </div>
 </section>
-<!-- /About-us--> 
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+<!--Page Header-->
+<section class="page-header faq_page">
+    <div class="container">
+        <div class="page-header_wrap">
+            <div class="page-heading">
+                <h1>FAQ</h1>
+            </div>
+            <ul class="coustom-breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li>FAQ</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Dark Overlay-->
+    <div class="dark-overlay"></div>
+</section>
+<!-- /Page Header-->
+
+<!--FAQ-->
+<section class="contact_us section-padding">
+    <div class="container">
+        <div  class="row">
+            <div class="col-md-6">
+                <h3>Lorem Ipsum</h3>
+                <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php }
+                else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
+                <label>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </label>
+            </div>
+            <div class="col-md-6">
+                <h3>Lorem Ipsum</h3>
+                <label>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </label>
+                <div class="contact_detail">
+                    <?php
+                    $pagetype=$_GET['type'];
+                    $sql = "SELECT Address,EmailId,ContactNo from tblcontactusinfo";
+                    $query = $dbh -> prepare($sql);
+                    $query->bindParam(':pagetype',$pagetype,PDO::PARAM_STR);
+                    $query->execute();
+                    $results=$query->fetchAll(PDO::FETCH_OBJ);
+                    $cnt=1;
+                    if($query->rowCount() > 0)
+                    {
+                        foreach($results as $result)
+                        { ?>
+                            <ul>
+                                <li>
+                                    <div class="icon_wrap"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                                    <div class="contact_info_m"><?php   echo htmlentities($result->Address); ?></div>
+                                </li>
+                                <li>
+                                    <div class="icon_wrap"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                                    <div class="contact_info_m"><a href="tel:61-1234-567-90"><?php   echo htmlentities($result->EmailId); ?></a></div>
+                                </li>
+                                <li>
+                                    <div class="icon_wrap"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                                    <div class="contact_info_m"><a href="mailto:contact@exampleurl.com"><?php   echo htmlentities($result->ContactNo); ?></a></div>
+                                </li>
+                            </ul>
+                        <?php }} ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /FAQ-->
+
 <!--Footer -->
 <?php include('includes/footer.php');?>
 <!-- /Footer--> 
