@@ -153,7 +153,7 @@ $_SESSION['brndid']=$result->bid;
           <div class="listing_detail_wrap"> 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs gray-bg" role="tablist">
-              <li role="presentation" class="active"><a href="#vehicle-overview " aria-controls="vehicle-overview" role="tab" data-toggle="tab">Vehicle Overview </a></li>
+              <li role="presentation" class="active"><a href="#vehicle-overview" aria-controls="vehicle-overview" role="tab" data-toggle="tab">Vehicle Overview </a></li>
           
               <li role="presentation"><a href="#accessories" aria-controls="accessories" role="tab" data-toggle="tab">Accessories</a></li>
             </ul>
@@ -342,6 +342,13 @@ $_SESSION['brndid']=$result->bid;
             <div class="form-group">
               <textarea rows="4" class="form-control" name="message" placeholder="Message" required></textarea>
             </div>
+              <div class="form-group"
+              <textarea name="choose">Choose if you want personal driver:</textarea>
+              <input type="radio" id="yes" name="answer" value="yes">
+              <label for="yes">Yes</label><br>
+              <input type="radio" id="no" name="answer" value="no">
+              <label for="no">No</label><br>
+        </div>
           <?php if($_SESSION['login'])
               {?>
               <div class="form-group">

@@ -55,7 +55,7 @@ error_reporting(0);
                     <div class="banner_content">
                         <h1>Find the right car for you.</h1>
                         <p>We have more than a thousand cars for you to choose. </p>
-                        <a href="#" class="btn">Read More <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
+                        <a href="car-listing.php" class="btn">Choose one! <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
                 </div>
             </div>
         </div>

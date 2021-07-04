@@ -125,7 +125,7 @@ foreach($results as $result)
             <h5><i class="fa fa-filter" aria-hidden="true"></i> Find Your  Car </h5>
           </div>
           <div class="sidebar_filter">
-            <form action="search-carresult.php" method="post">
+            <form action="car-booking.php" method="post"> //action -> search-carresult.php
               <div class="form-group select">
                 <select class="form-control" name="brand">
                   <option>Select Brand</option>
