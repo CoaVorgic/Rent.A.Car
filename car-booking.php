@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+include 'includes/config.php';
+error_reporting(0);
 
 $fromdate = $_POST['fromdate'];
 $todate = $_POST['todate'];
@@ -53,7 +55,7 @@ $query->bindParam(':location',$location,PDO::PARAM_STR);
 $query->bindParam(':totalPrice',$totalPrice,PDO::PARAM_STR);
 $query->execute();
 
-echo "<script>alert('Registration successfull. Now you can login');</script>";
+echo '<script language="javascript"> alert("Uspesno ste rezervisali vozilo."); location.href="car-listing.php" </script>'
 
 //echo $interval->format('%d days');
 
